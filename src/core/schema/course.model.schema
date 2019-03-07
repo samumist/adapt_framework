@@ -6,30 +6,33 @@
   "properties": {
     "heroImage": {
       "type": "string",
-      "title": "Preview image",
+      "title": "课件封面",
       "default": "",
       "inputType": "Asset:image",
       "validators": [],
       "editorOnly": true,
-      "help": "The image that will be shown in the dashboard for this course"
+      "help": "在课件中心显示的课件封面图片。"
     },
     "title": {
       "type": "string",
       "required": true,
-      "default": "New Course Title",
+      "default": "课件内部名称",
       "inputType": "Text",
       "validators": [
         "required"
       ],
+      "title": "课件内部名称",
+      "help": "在浏览器标签栏显示，不在课件主菜单上显示。系统导出课件时使用这个名称。",
       "translatable": true
     },
     "displayTitle": {
       "type": "string",
       "required": false,
-      "default": "New Course Title",
+      "default": "课件名称",
       "inputType": "DisplayTitle",
       "validators": [],
-      "help": "This is the title that will be displayed on the course's main menu",
+      "title": "课程显示名称",
+      "help": "在课件主菜单上显示的名称",
       "translatable": true
     },
     "description": {
@@ -38,14 +41,17 @@
       "default": "",
       "inputType": "Text",
       "validators": [],
-      "translatable": true,
-      "help": "This will be added to the course's manifest file metadata. It is not (currently) displayed anywhere within the course."
+      "title": "课件描述",
+      "help": "课件描述内容不会显示在课件的任何位置。这些内容将会添加到课件的清单文件元数据（manifest file metadata）供LMS读取使用。如果课件不打算在LMS使用，可不填。",
+      "translatable": true
     },
     "body": {
       "type": "string",
       "default": "",
       "inputType": "TextArea",
       "validators": [],
+      "title": "课件内容介绍",
+      "help": "课件内容的简单介绍，一般显示在课件的主菜单上。",
       "translatable": true
     },
     "_extensions": {
@@ -58,8 +64,8 @@
     },
     "_start": {
       "type": "object",
-      "title": "Start settings",
-      "help": "The start settings allow you to control which page is rendered when a course loads, potentially bypassing the menu.",
+      "title": "课件首页设置",
+      "help": "启用课件首页设置允许您控制课件加载时呈现的页面，即从哪个页面开始课件，可以设置为跳过菜单。",
       "properties": {
         "_isEnabled": {
           "type": "boolean",
@@ -67,19 +73,21 @@
           "editorOnly": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enabled?"
+          "title": "启用"
         },
         "_startIds": {
           "type": "array",
-          "title": "Start List",
+          "title": "首页列表",
+          "help": "点击下面的“添加”按钮来指定课件加载时启动的页面，当指定了多个页面时，课件将使用满足条件的第一个页面。",
           "items": {
             "type": "object",
             "properties": {
               "_id": {
                 "type": "string",
-                "title": "ID",
+                "title": "页面ID",
                 "inputType": "Text",
-                "required": true
+                "required": true,
+                "help": "课件页面的ID，是一串没有规律的数字和字母组合。可以通过在页面编辑页点击齿轮图标，然后选择”复制ID到剪切板“获取。"
               },
               "_skipIfComplete": {
                 "type": "boolean",
@@ -87,15 +95,15 @@
                 "editorOnly": true,
                 "inputType": "Checkbox",
                 "validators": [],
-                "title": "Skip if complete?",
-                "help": "If enabled, the page will not be selected as the first page if it has been already viewed/completed"
+                "title": "跳过已完成页面",
+                "help": "启用后，当用户完成该页面内容后再次访问课件时则跳过这个页面，访问首页列表中第二个符合条件的页面。"
               },
               "_className": {
                 "type": "string",
                 "inputType": "Text",
                 "required": true,
-                "title": "Classes",
-                "help": "Optional comma-separated list of class names which will be used to select this start page"
+                "title": "CSS类名应用",
+                "help": "在这里输入需要应用于课件首页的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
               }
             }
           }
@@ -106,8 +114,8 @@
           "editorOnly": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Force routing",
-          "help": "If enabled, the routing will be forced to the appropriate start page, regardless of the URL"
+          "title": "强制首页",
+          "help": "启用后忽略浏览器中输入的课件URL，强制打开在首页列表中指定的课件起始页面。"
         },
         "_isMenuDisabled": {
           "type": "boolean",
@@ -115,23 +123,25 @@
           "editorOnly": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Disable menu",
-          "help": "Allows you to prevent the user from seeing - or navigating to - the main menu"
+          "title": "禁用菜单",
+          "help": "启用后禁止用户打开或访问/导航到课件主菜单。"
         }
       }
     },
     "_globals": {
       "type": "object",
+      "title": "Globals标签集合",
+      "help": "globals标签集合为所有课件开发平台的核心模块和课件中已启用的插件提供无障碍ARIA标签，并分为以下子集：组件（components），扩展（extensions），菜单（menu）和无障碍辅助功能（accessibility）。",
       "properties": {
         "_accessibility": {
           "type": "object",
-          "title": "Accessibility",
+          "title": "无障碍辅助功能",
           "required": true,
           "properties": {
             "skipNavigationText": {
               "type": "string",
-              "title": "Skip navigation label",
-              "default": "Skip navigation",
+              "title": "跳过导航标签",
+              "default": "跳过导航",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -141,164 +151,164 @@
             },
             "_ariaLabels": {
               "type": "object",
-              "title": "ARIA labels",
+              "title": "ARIA 标签",
               "properties": {
                 "answeredIncorrectly": {
                   "type": "string",
-                  "title": "",
-                  "default": "You answered incorrectly",
+                  "title": "回答错误",
+                  "default": "你答错了",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "answeredCorrectly": {
                   "type": "string",
-                  "title": "",
-                  "default": "You answered correctly",
+                  "title": "回答正确",
+                  "default": "你答对了",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "selectedAnswer": {
                   "type": "string",
-                  "title": "",
-                  "default": "selected",
+                  "title": "已选择的答案选项",
+                  "default": "已经选择的答案选项",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "unselectedAnswer": {
                   "type": "string",
-                  "title": "",
-                  "default": "not selected",
+                  "title": "未选择的答案选项",
+                  "default": "没有选择的答案选项",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "skipNavigation": {
                   "type": "string",
-                  "title": "Skip Navigation",
-                  "default": "Skip Navigation",
+                  "title": "跳过导航",
+                  "default": "跳过导航",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "previous": {
                   "type": "string",
-                  "title": "",
-                  "default": "Back",
+                  "title": "前一项",
+                  "default": "返回",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "navigationDrawer": {
                   "type": "string",
-                  "title": "",
-                  "default": "Open course resources.",
+                  "title": "课件抽屉导航",
+                  "default": "打开课件辅助学习资源",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "close": {
                   "type": "string",
-                  "title": "",
-                  "default": "Close",
+                  "title": "关闭",
+                  "default": "关闭",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "closeDrawer": {
                   "type": "string",
-                  "title": "",
-                  "default": "Close Drawer",
+                  "title": "关闭课件抽屉",
+                  "default": "关闭课件抽屉",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "closeResources": {
                   "type": "string",
-                  "title": "",
-                  "default": "Close resources",
+                  "title": "关闭课件辅助学习资源",
+                  "default": "关闭课件辅助学习资源",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "drawer": {
                   "type": "string",
-                  "title": "",
-                  "default": "Top of side drawer",
+                  "title": "课件抽屉",
+                  "default": "你现在在页面侧边的课件抽屉顶部",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "closePopup": {
                   "type": "string",
-                  "title": "",
-                  "default": "Close popup",
+                  "title": "关闭弹窗",
+                  "default": "关闭弹出窗口",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "next": {
                   "type": "string",
-                  "title": "",
-                  "default": "Next",
+                  "title": "下一项",
+                  "default": "下一项",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "done": {
                   "type": "string",
-                  "title": "",
-                  "default": "Done",
+                  "title": "完成",
+                  "default": "完成",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "complete": {
                   "type": "string",
-                  "title": "",
-                  "default": "Completed",
+                  "title": "已完成",
+                  "default": "已经完成的",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "incomplete": {
                   "type": "string",
-                  "title": "",
-                  "default": "Incomplete",
+                  "title": "未完成",
+                  "default": "还未完成的",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "incorrect": {
                   "type": "string",
-                  "title": "",
-                  "default": "Incorrect",
+                  "title": "不正确",
+                  "default": "错误",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "correct": {
                   "type": "string",
-                  "title": "",
-                  "default": "Correct",
+                  "title": "正确",
+                  "default": "正确",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "locked": {
                   "type": "string",
-                  "title": "",
-                  "default": "Locked",
+                  "title": "锁定",
+                  "default": "锁定的内容，解锁后方可访问",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
                 },
                 "visited": {
                   "type": "string",
-                  "title": "",
-                  "default": "Visited",
+                  "title": "已访问",
+                  "default": "已经浏览过的内容",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
@@ -312,16 +322,17 @@
     "_buttons": {
       "type": "object",
       "default": "",
-      "title": "",
+      "title": "按钮设置",
       "isSetting": false,
       "properties": {
         "_submit": {
           "type": "object",
-          "title": "Submit",
+          "title": "提交",
           "properties": {
             "buttonText": {
               "type": "string",
-              "default": "Submit",
+              "title": "按钮上的文字",
+              "default": "提交答案",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -331,8 +342,8 @@
             },
             "ariaLabel": {
               "type": "string",
-              "title": "ARIA label",
-              "default": "Submit",
+              "title": "ARIA 标签",
+              "default": "提交答案",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -344,11 +355,12 @@
         },
         "_reset": {
           "type": "object",
-          "title": "Reset",
+          "title": "重置",
           "properties": {
             "buttonText": {
               "type": "string",
-              "default": "Reset",
+              "title": "按钮上的文字",
+              "default": "重置",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -358,8 +370,8 @@
             },
             "ariaLabel": {
               "type": "string",
-              "title": "ARIA label",
-              "default": "Reset",
+              "title": "ARIA 标签",
+              "default": "重置",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -371,11 +383,12 @@
         },
         "_showCorrectAnswer": {
           "type": "object",
-          "title": "Show correct answer",
+          "title": "显示正确答案",
           "properties": {
             "buttonText": {
               "type": "string",
-              "default": "Correct answer",
+              "title": "按钮上的文字",
+              "default": "正确答案",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -385,8 +398,8 @@
             },
             "ariaLabel": {
               "type": "string",
-              "title": "ARIA label",
-              "default": "Show correct answer",
+              "title": "ARIA 标签",
+              "default": "显示正确答案",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -398,11 +411,12 @@
         },
         "_hideCorrectAnswer": {
           "type": "object",
-          "title": "Hide correct answer",
+          "title": "隐藏正确答案",
           "properties": {
             "buttonText": {
               "type": "string",
-              "default": "My answer",
+              "title": "按钮上的文字",
+              "default": "我的答案",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -412,8 +426,8 @@
             },
             "ariaLabel": {
               "type": "string",
-              "title": "ARIA label",
-              "default": "Hide correct answer",
+              "title": "ARIA 标签",
+              "default": "隐藏正确答案",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -425,11 +439,12 @@
         },
         "_showFeedback": {
           "type": "object",
-          "title": "Show feedback",
+          "title": "显示反馈信息",
           "properties": {
             "buttonText": {
               "type": "string",
-              "default": "Show feedback",
+              "title": "按钮上的文字",
+              "default": "反馈信息",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -439,8 +454,8 @@
             },
             "ariaLabel": {
               "type": "string",
-              "title": "ARIA label",
-              "default": "Show feedback",
+              "title": "ARIA 标签",
+              "default": "显示反馈信息",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -452,8 +467,8 @@
         },
         "remainingAttemptsText": {
           "type": "string",
-          "title": "Remaining attempts label",
-          "default": "attempts remaining",
+          "title": "剩余答题机会标签",
+          "default": "次剩余答题机会",
           "inputType": "Text",
           "required": true,
           "validators": [
@@ -463,8 +478,8 @@
         },
         "remainingAttemptText": {
           "type": "string",
-          "title": "Final attempt label",
-          "default": "final attempt",
+          "title": "最后答题机会标签",
+          "default": "最后答题机会",
           "inputType": "Text",
           "required": true,
           "validators": [
@@ -474,8 +489,8 @@
         },
         "disabledAriaLabel": {
           "type": "string",
-          "title": "Disabled ARIA label",
-          "default": "This button is disabled at the moment",
+          "title": "按钮禁用的ARIA标签",
+          "default": "当前按钮不可用",
           "inputType": "Text",
           "required": true,
           "validators": [
@@ -495,8 +510,8 @@
         "editorOnly": true,
         "ref": "tag"
       },
-      "title": "Tags",
-      "help": "Add tags to your course by entering one or more words, separated with a comma (,)",
+      "title": "课件标签",
+      "help": "课件标签让用户能够在课件中心通过标签快速筛选课件。每个课件可以添加1个或多个标签。添加多个标签时请以英文输入法下的逗号分隔。",
       "editorOnly": true
     },
     "_classes": {
@@ -505,7 +520,8 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "Classes"
+      "title": "CSS类名应用",
+      "help": "在这里输入需要应用于课件div的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isSelected": {
       "type": "boolean",
@@ -523,8 +539,8 @@
       "editorOnly": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Share with other users",
-      "help": "Controls whether or not your colleagues will be able to see this course from the 'Shared courses' option"
+      "title": "设置为共享课件",
+      "help": "允许课件开发平台上的其他用户在课件中心的“共享课件”菜单下访问并编辑这个课件。"
     },
     "themeSettings": {
       "type": "object"
@@ -545,8 +561,8 @@
           "unlockFirst"
         ]
       },
-      "title": "Menu lock type",
-      "help": "Defines which (if any) locking mechanism will be used for menu items",
+      "title": "菜单锁定类型",
+      "help": "选择课件是否使用菜单锁定功能，并设置菜单锁定类型。sequential：打开第一个菜单项，完成后按顺序依次解锁；unlockFirst: 打开第一个菜单项，完成后全部解锁；lockLast：锁定最后一个菜单项，完成所有其他菜单项后解锁；custom：自定义锁定，完成指定菜单项后方可解锁。",
       "validators": []
     },
     "customStyle": {
@@ -554,8 +570,8 @@
       "default": "",
       "inputType": "CodeEditor:less",
       "validators": [],
-      "title": "Custom CSS/LESS code",
-      "help": "Add any custom CSS or valid LESS code here"
+      "title": "添加自定义CSS/LESS代码",
+      "help": "在空白处添加有效的CSS或LESS代码来覆盖或扩展选定的课件主题中的定义。"
     },
     "externalReferences": {
       "type" : "object"
