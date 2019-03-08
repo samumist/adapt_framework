@@ -7,18 +7,21 @@
     "title": {
       "type": "string",
       "required": true,
-      "default": "New Article Title",
+      "default": "新增章节标题",
       "inputType": "Text",
       "validators": ["required"],
+      "title": "章节内部标题",
+      "help": "不在页面上显示，课件项目管理使用。",
       "translatable": true
     },
     "displayTitle": {
       "type": "string",
       "required": false,
-      "default": "New Article Title",
+      "default": "新增章节标题",
       "inputType": "DisplayTitle",
       "validators": [],
-      "help": "When viewing an article - this is the title that will be displayed on the page",
+      "title": "章节显示标题",
+      "help": "在页面上显示的章节标题。",
       "translatable": true
     },
     "body": {
@@ -26,15 +29,18 @@
       "default": "",
       "inputType": "TextArea",
       "validators": [],
+      "title": "章节内容简介",
+      "help": "章节内容介绍，通常不填。",
       "translatable": true
     },
     "instruction": {
       "type": "string",
       "required": false,
-      "title": "Instruction text",
+      "title": "说明",
       "default": "",
       "inputType": "Text",
       "validators": [],
+      "help": "选填，可以是一些提示性的简单操作说明",
       "translatable": true
     },
     "_classes": {
@@ -43,8 +49,8 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "Classes",
-      "help": "Used to style or manipulate the look and feel of this Article. These are predefined in the theme."
+      "title": "CSS类名应用",
+      "help": "在这里输入需要应用于当前章节元素的CSS类名(class)。章节CSS类通常用于控制章节的外观和界面设计，必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isOptional": {
       "type": "boolean",
@@ -52,8 +58,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this optional?",
-      "help": "An optional article does not have to be completed, nor do any of the blocks and components contained within it."
+      "title": "设置为可选",
+      "help": "用户不必完成可选章节或可选章节包含的任何内容即可完成课件。虽然课件仍将跟踪可选章节中的组件完成状态，但在最终计算课件完成情况时会忽略这些组件。"
     },
     "_isAvailable": {
       "type": "boolean",
@@ -61,8 +67,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this available?",
-      "help": "Controls whether this article and its contents are available in the course or not."
+      "title": "设置为可用",
+      "help": "控制此章节及其包含的内容是否在课件中可用，绝大多数情况下使用默认设置无需修改。"
     },
     "_isHidden": {
       "type": "boolean",
@@ -70,8 +76,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this hidden?",
-      "help": "Enabling this is equivalent to applying the CSS 'display:none' to the article."
+      "title": "设置为隐藏",
+      "help": "启用此功能相当于将CSS的“display：none”应用于当前章节，即不在页面显示章节内容。"
     },
     "_isVisible": {
       "type": "boolean",
@@ -79,21 +85,22 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this visible?",
-      "help": "Disabling this is equivalent to applying the CSS 'visibility:hidden' to the article."
+      "title": "可见性",
+      "help": "CSS可见性属性(visibility)。 除非您自定义的代码需要使用此功能，一般情况下您不会更改此设置。"
     },
     "_ariaLevel": {
       "type": "number",
+      "title": "ARIA级别",
       "default": 0,
       "isSetting": true,
       "inputType": "Number",
       "validators": ["number"],
-      "help": "If you need to override the default article ARIA level (as defined in Configuration Settings), set this to any number greater than 0."
+      "help": "如果需要覆盖默认的章节ARIA级别（默认值在课件参数中设置），请将此值设置为大于0的任何数字。"
     },
     "_onScreen": {
       "type": "object",
-      "title": "On-screen classes",
-      "help": "These settings allow you to attach classes to the article when it is within the browser's viewport; helpful for running CSS-based animations on articles as they scroll into view.",
+      "title": "On-screen CSS类设置",
+      "help": "这些设置允许您在浏览器的视口（viewport) 中将CSS类附加到当前章节，有助于在章节滚动到视图时在章节上运行基于CSS的动画。",
       "properties": {
         "_isEnabled": {
           "type": "boolean",
@@ -101,7 +108,7 @@
           "isSetting": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enabled?"
+          "title": "启用"
         },
         "_classes": {
           "type": "string",
@@ -110,18 +117,18 @@
           "required": false,
           "inputType": "Text",
           "validators": [],
-          "title": "Classes",
-          "help": "The CSS class(es) to add to the article element."
+          "title": "CSS类应用",
+          "help": "应用到章节元素（article element)的CSS类名称，添加多个时用空格分开。"
         },
         "_percentInviewVertical": {
           "type": "number",
           "required": false,
           "default": 50,
           "isSetting": true,
-          "title": "Percent in view",
+          "title": "视口百分比",
           "inputType": "Number",
           "validators": ["number"],
-          "help": "Controls what percentage of the article's height needs to be in the viewport in order for the CSS class(es) to be added."
+          "help": "控制章节高度在视口(viewport)中的百分比，以便添加CSS类。"
         }
       }
     },

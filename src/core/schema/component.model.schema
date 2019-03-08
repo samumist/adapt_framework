@@ -28,7 +28,8 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "Classes"
+      "title": "CSS类名应用",
+      "help": "在这里输入需要应用于当前组件元素的CSS类名(class)，必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isOptional": {
       "type": "boolean",
@@ -36,8 +37,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this optional?",
-      "help": "An optional component does not have to be completed by the user."
+      "title": "设置为可选",
+      "help": "用户不必完成可选组件即可完成课件。虽然课件仍将跟踪可选组件的完成状态，但在最终计算课件完成情况时会忽略这些组件。"
     },
     "_isAvailable": {
       "type": "boolean",
@@ -45,8 +46,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this available?",
-      "help": "Controls whether this component is available in the course or not."
+      "title": "设置为可用",
+      "help": "控制该组件是否在课件中可用，绝大多数情况下使用默认设置无需修改。"
     },
     "_isHidden": {
       "type": "boolean",
@@ -54,8 +55,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this hidden?",
-      "help": "Enabling this is equivalent to applying the CSS 'display:none' to the component."
+      "title": "设置为隐藏",
+      "help": "启用该功能相当于将CSS的“display：none”应用于当前组件，即不在页面显示组件内容。"
     },
     "_isVisible": {
       "type": "boolean",
@@ -63,16 +64,17 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is this visible?",
-      "help": "Disabling this is equivalent to applying the CSS 'visibility:hidden' to the component."
+      "title": "可见性",
+      "help": "CSS可见性属性(visibility)。 除非您自定义的代码需要使用此功能，一般情况下您不会更改此设置。"
     },
     "_ariaLevel": {
       "type": "number",
+      "title": "ARIA级别",
       "default": 0,
       "isSetting": true,
       "inputType": "Number",
       "validators": ["number"],
-      "help": "If you need to override the default component ARIA level (as defined in Configuration Settings), set this to any number greater than 0."
+      "help": "如果需要覆盖默认的组件ARIA级别（默认值在课件参数中设置），请将此值设置为大于0的任何数字。"
     },
     "_disableAccessibilityState": {
       "type": "boolean",
@@ -80,8 +82,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Is the accessibility state disabled?",
-      "help": "Controls whether the user can tab to a hidden label that describes the completion state of the component"
+      "title": "禁用组件完成状态访问",
+      "help": "控制用户是否可以按Tab键访问一个描述组件完成状态的隐藏标签。"
     },
     "_parentId": {
       "type": "objectid",
@@ -95,18 +97,21 @@
     "title": {
       "type": "string",
       "required": true,
-      "default": "New Component Title",
+      "default": "新增组件标题",
       "inputType": "Text",
       "validators": ["required"],
+      "title": "组件内部标题",
+      "help": "不在页面上显示，课件项目管理使用。",
       "translatable": true
     },
     "displayTitle": {
       "type": "string",
       "required": false,
-      "default": "New Component Title",
+      "default": "新增组件标题",
       "inputType": "DisplayTitle",
       "validators": [],
-      "help": "When viewing a component - this is the title that will be displayed",
+      "title": "组件显示标题",
+      "help": "在页面上显示的组件标题。",
       "translatable": true
     },
     "body":{
@@ -114,12 +119,13 @@
       "default" : "",
       "inputType": "TextArea",
       "validators": [],
+      "title": "组件内容简介",
       "translatable": true
     },
     "_onScreen": {
       "type": "object",
-      "title": "On-screen classes",
-      "help": "These settings allow you to attach classes to the component when it is within the browser's viewport; helpful for running CSS-based animations on components as they scroll into view.",
+      "title": "On-screen CSS类设置",
+      "help": "这些设置允许您在浏览器的视口（viewport) 中将CSS类附加到当前组件，有助于在组件滚动到视图时在组件上运行基于CSS的动画。",
       "properties": {
         "_isEnabled": {
           "type": "boolean",
@@ -127,7 +133,7 @@
           "isSetting": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enabled?"
+          "title": "启用"
         },
         "_classes": {
           "type": "string",
@@ -136,18 +142,18 @@
           "required": false,
           "inputType": "Text",
           "validators": [],
-          "title": "Classes",
-          "help": "The CSS class(es) to add to the component element."
+          "title": "CSS类应用",
+          "help": "应用到组件元素（component element)的CSS类名称，添加多个时用空格分开。"
         },
         "_percentInviewVertical": {
           "type": "number",
           "required": false,
           "default": 50,
           "isSetting": true,
-          "title": "Percent in view",
+          "title": "视口百分比",
           "inputType": "Number",
           "validators": ["number"],
-          "help": "Controls what percentage of the component's height needs to be in the viewport in order for the CSS class(es) to be added."
+          "help": "控制组件高度在视口(viewport)中的百分比，以便添加CSS类。"
         }
       }
     },
