@@ -31,7 +31,7 @@
       "default": "课件名称",
       "inputType": "DisplayTitle",
       "validators": [],
-      "title": "课程显示名称",
+      "title": "课件显示名称",
       "help": "在课件主菜单上显示的名称",
       "translatable": true
     },
@@ -42,7 +42,7 @@
       "inputType": "Text",
       "validators": [],
       "title": "课件描述",
-      "help": "课件描述内容不会显示在课件的任何位置。这些内容将会添加到课件的清单文件元数据（manifest file metadata）供LMS读取使用。如果课件不打算在LMS使用，可不填。",
+      "help": "课件描述内容不会显示在课件的任何位置。这些内容将会添加到课件的清单文件元数据（manifest file metadata）供LMS使用。如果课件不打算在LMS使用，可不填。",
       "translatable": true
     },
     "body": {
@@ -102,7 +102,7 @@
                 "type": "string",
                 "inputType": "Text",
                 "required": true,
-                "title": "CSS类名应用",
+                "title": "CSS类名(class)应用",
                 "help": "在这里输入需要应用于课件首页的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
               }
             }
@@ -196,7 +196,7 @@
                 "previous": {
                   "type": "string",
                   "title": "前一项",
-                  "default": "返回",
+                  "default": "前一项",
                   "inputType": "Text",
                   "required": true,
                   "translatable": true
@@ -520,7 +520,7 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "CSS类名应用",
+      "title": "CSS类名(class)应用",
       "help": "在这里输入需要应用于课件div的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isSelected": {
@@ -571,7 +571,7 @@
       "inputType": "CodeEditor:less",
       "validators": [],
       "title": "添加自定义CSS/LESS代码",
-      "help": "在空白处添加有效的CSS或LESS代码来覆盖或扩展选定的课件主题中的定义。"
+      "help": "在空白处添加有效的CSS或LESS代码来覆写或扩展选定的课件主题中的定义。"
     },
     "externalReferences": {
       "type" : "object"

@@ -24,7 +24,7 @@
     "_completionCriteria": {
       "type": "object",
       "title": "课件完成标准",
-      "help": "在这里设定跟踪课件完成状态的条件，默认值是完成所有课件内容。只有在满足下面设定的条件后，在向LMS报告时课件状态才会被标记为“完成”。",
+      "help": "在这里设定跟踪课件完成状态的条件，默认是完成所有课件内容。只有在满足下面设定的条件后，在向LMS报告时课件状态才会被标记为“完成”。",
       "properties": {
         "_requireContentCompleted": {
           "type": "boolean",
@@ -32,7 +32,7 @@
           "inputType": "Checkbox",
           "validators": [],
           "title": "完成所有课件内容",
-          "help": "必须完成课件中的所有内容。"
+          "help": "必须完成课件中除可选内容以外的所有内容。"
         },
         "_requireAssessmentCompleted": {
           "type": "boolean",
@@ -75,7 +75,7 @@
       "properties" : {
         "_isEnabled": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "inputType": "Checkbox",
           "validators": [],
           "title": "启用课件无障碍辅助功能"
@@ -99,7 +99,7 @@
         "_ariaLevels": {
           "type": "object",
           "title": "ARIA级别设置",
-          "help": "设定课件页面中各种元素的ARIA级别属性值，一般情况下无需设置，使用默认值即可。",
+          "help": "设定课件页面中各种元素的ARIA级别属性值，一般情况下无需修改，使用默认值即可。",
           "properties" : {
             "_menu": {
               "type": "number",
@@ -164,7 +164,7 @@
     "screenSize": {
       "type": "object",
       "title": "屏幕尺寸设置",
-      "help": "屏幕尺寸设置允许将像素宽度指定给三个设备宽度：小，中和大。 指定的值必须仅为数字，且不含单位。 注意：屏幕尺寸设置仅应用在程序代码中使用Adapt.device.width，而不是定义课件CSS中的media query。一般情况下使用默认值即可。",
+      "help": "屏幕尺寸设置允许将像素宽度指定给三个设备宽度：大、中、小。 指定的值必须仅为数字，且不含单位。 注意：屏幕尺寸设置仅应用在程序代码中使用Adapt.device.width，而不是定义课件CSS中的media query，一般情况下使用默认值即可。",
       "properties": {
         "small": {
           "type": "number",
@@ -182,7 +182,7 @@
           "title": "中",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "中等设备屏幕宽度像素值，如：智能手机"
+          "help": "中等设备屏幕宽度像素值，如：平板设备"
         },
         "large": {
           "type": "number",
@@ -203,19 +203,19 @@
       "title": "问题权重",
       "inputType": "Number",
       "validators": ["required", "number"],
-      "help": "每个问题组件在计算分数时所占权重的全局默认设置。单个问题组件可以在其属性设置里修改这个设置，从而覆盖这个全局设置。"
+      "help": "每个问题组件在计算分数时所占权重的全局默认设置。单个问题组件可以在其属性设置里修改这个设置，从而覆写这个全局设置。"
     },
     "_drawer": {
       "type": "object",
       "isSetting": false,
       "title": "课件抽屉",
-      "help": "课件抽屉默认是一个滑出面板，通常用于显示课件页面级别进度的指示器和课件辅助资源的链接等。 课件抽屉使用velocity.js引擎作为动画效果。",
+      "help": "课件抽屉默认是一个滑出面板，通常用于显示课件学习进度的指示器和课件辅助资源的链接等。 课件抽屉使用velocity.js引擎作为动画效果。",
       "properties": {
         "_showEasing": {
           "type": "string",
           "required": true,
           "default": "easeOutQuart",
-          "title": "打开时动画效果",
+          "title": "打开动画效果",
           "help": "请选择课件抽屉打开时的动画效果",
           "inputType": {
             "type": "Select",
@@ -304,7 +304,7 @@
           "title": "动画时长",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "打开或关闭课件抽屉的动画显示时间。"
+          "help": "打开或关闭课件抽屉时的动画显示时间。"
         }
       }
     },
@@ -350,7 +350,7 @@
           "type": "string",
           "required": true,
           "default" : "info",
-          "title" : "选择系统记录级别",
+          "title" : "系统记录级别",
           "validators": [],
           "inputType": {
             "type": "Select",
@@ -389,10 +389,10 @@
           "type": "string",
           "required": false,
           "default": "",
-          "title": "滚动支持仅使用在以下CSS选择器",
+          "title": "滚动支持仅应用在以下CSS选择器",
           "inputType": "Text",
           "validators": [],
-          "help": "滚动支持仅在给出的CSS选择器名称匹配的HTML元素上启用。"
+          "help": "滚动支持仅在列出的CSS选择器名称匹配的HTML元素上启用。"
         }
       }
     },

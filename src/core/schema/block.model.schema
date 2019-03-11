@@ -56,7 +56,7 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "CSS类名应用",
+      "title": "CSS类名(class)应用",
       "help": "在这里输入需要应用于当前组块元素的CSS类名(class)。组块CSS类通常用于控制组块的外观和界面设计，必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isOptional": {
@@ -75,7 +75,7 @@
       "inputType": "Checkbox",
       "validators": [],
       "title": "设置为可用",
-      "help": "控制此组块及其包含的内容是否在课件中可用，绝大多数情况下使用默认设置无需修改。"
+      "help": "控制当前组块及其包含的内容是否在课件中可用，绝大多数情况下使用默认设置无需修改。"
     },
     "_isHidden": {
       "type": "boolean",
@@ -92,8 +92,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "可见性",
-      "help": "CSS可见性属性(visibility)。 除非您自定义的代码需要使用此功能，一般情况下您不会更改此设置。"
+      "title": "设置为可见",
+      "help": "相当于将CSS的可见性属性(visibility)设置为：visibility:visible。 除非您自定义的代码需要使用此功能，一般情况下您不会更改此设置。"
     },
     "_ariaLevel": {
       "type": "number",
@@ -102,12 +102,12 @@
       "isSetting": true,
       "inputType": "Number",
       "validators": ["number"],
-      "help": "如果需要覆盖默认的组块ARIA级别（默认值在课件参数中设置），请将此值设置为大于0的任何数字。"
+      "help": "如果需要覆写默认的组块ARIA级别（默认值在课件参数中设置），请将此值设置为大于0的任何数字。"
     },
     "_onScreen": {
       "type": "object",
-      "title": "On-screen CSS类设置",
-      "help": "这些设置允许您在浏览器的视口（viewport) 中将CSS类附加到当前组块，有助于在组块滚动到视图时在组块上运行基于CSS的动画。",
+      "title": "屏幕视区CSS类设置（On-screen Class)",
+      "help": "这些设置允许您在浏览器的视区（viewport)，即在用户网页的可视区域中将CSS类（class) 附加到当前组块，有助于在组块滚动到视区时在组块上运行基于CSS的动画效果。",
       "properties": {
         "_isEnabled": {
           "type": "boolean",
@@ -124,18 +124,18 @@
           "required": false,
           "inputType": "Text",
           "validators": [],
-          "title": "CSS类应用",
-          "help": "应用到组块元素（block element)的CSS类名称，添加多个时用空格分开。"
+          "title": "CSS类名(class)应用",
+          "help": "指定要应用到组块元素（block element)的CSS类(class)名称，添加多个时用空格分开。"
         },
         "_percentInviewVertical": {
           "type": "number",
           "required": false,
           "default": 50,
           "isSetting": true,
-          "title": "视口百分比",
+          "title": "视区(viewport)百分比",
           "inputType": "Number",
           "validators": ["number"],
-          "help": "控制组块高度在视口(viewport)中的百分比，以便添加CSS类。"
+          "help": "控制组块高度在用户视区(viewport)，即用户网页的可视区域的百分比，达到时便可添加CSS类（class)。"
         }
       }
     },
