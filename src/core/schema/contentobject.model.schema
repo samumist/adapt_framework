@@ -91,7 +91,7 @@
     "duration": {
       "type": "string",
       "required": false,
-      "title": "学习用时",
+      "title": "时长",
       "default": "",
       "inputType": "Text",
       "validators" : [""],
@@ -105,7 +105,7 @@
       "title": "解锁条件设置",
       "inputType": "List",
       "validators": [],
-      "help": "如果课件使用“自定义”菜单锁定类型，则应在此包含解锁当前菜单项/页面之前必须完成的页面ID。可设置1个或多个页面ID，如果设置了多个页面ID，解锁则需要完成所有设置的页面内容。课件页面的ID可以通过在页面编辑页点击齿轮图标，然后选择”复制ID到剪切板“获取。"
+      "help": "如果课件使用“自定义”菜单锁定类型，则应在此包含解锁当前菜单项/页面之前必须完成的页面ID。可设置1个或多个页面ID，如果设置了多个页面ID，解锁则需要完成设置的所有页面内容。页面ID可以通过在页面编辑页点击齿轮图标，然后选择”复制ID到剪切板“获取。"
     },
     "_lockType": {
       "type": "string",
@@ -130,7 +130,7 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "CSS类名应用",
+      "title": "CSS类名(class)应用",
       "help": "在这里输入需要应用于当前菜单项的page元素的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isOptional": {
@@ -157,8 +157,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "在菜单上隐藏",
-      "help": "从课件菜单中隐藏此菜单项/页面。注意：使用的课件菜单需支持该功能。比如您将一个菜单项/页面设置为课件的“起始页”，因为用户在打开课件时已经浏览过这个页面了，所以您不希望它在菜单上列出。"
+      "title": "设置为隐藏",
+      "help": "在课件菜单中隐藏此菜单项/页面。比如您将一个菜单项/页面设置为课件的“起始页”，因为用户在打开课件时已经浏览过这个页面了，所以您不希望它在菜单上列出。注意：使用的课件菜单需支持该功能。"
     },
     "_isVisible": {
       "type": "boolean",
@@ -166,8 +166,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "可见性",
-      "help": "相当于CSS可见性属性(visibility)。 除非您自定义的代码需要使用此功能，一般情况下您不会在页面级别更改此设置。"
+      "title": "设置为可见",
+      "help": "相当于将CSS的可见性属性(visibility)设置为：visibility:visible。 除非您自定义的代码需要使用此功能，一般情况下您不会在页面级别更改此设置。"
     },
     "_ariaLevel": {
       "type": "number",
@@ -176,12 +176,12 @@
       "isSetting": true,
       "inputType": "Number",
       "validators": ["number"],
-      "help": "如果需要覆盖默认的页面ARIA级别（默认值在课件参数中设置），请将此值设置为大于0的任何数字。"
+      "help": "如果需要覆写默认的页面ARIA级别（默认值在课件参数中设置），请将此值设置为大于0的任何数字。"
     },
     "_onScreen": {
       "type": "object",
-      "title": "On-screen CSS类设置",
-      "help": "这些设置允许您在浏览器的视口（viewport) 中将CSS类附加到当前页面，有助于在页面滚动到视图时在页面上运行基于CSS的动画。",
+      "title":  "屏幕视区CSS类设置（On-screen Class)",
+      "help": "这些设置允许您在浏览器的视区（viewport)，即在用户网页的可视区域中将CSS类（class) 附加到当前页面，有助于在页面滚动到视区时在页面上运行基于CSS的动画效果。",
       "properties": {
         "_isEnabled": {
           "type": "boolean",
@@ -198,18 +198,18 @@
           "required": false,
           "inputType": "Text",
           "validators": [],
-          "title": "CSS类应用",
-          "help": "应用到页面元素（page element)的CSS类名称，添加多个时用空格分开。"
+          "title": "CSS类名(class)应用",
+          "help": "指定要应用到页面元素（page element)的CSS类（class）名称，添加多个css类时用空格分开。"
         },
         "_percentInviewVertical": {
           "type": "number",
           "required": false,
           "default": 50,
           "isSetting": true,
-          "title": "视口百分比",
+          "title": "视区(viewport)百分比",
           "inputType": "Number",
           "validators": ["number"],
-          "help": "控制页面高度在视口(viewport)中的百分比，以便添加CSS类。"
+          "help": "控制页面高度在用户视区(viewport)，即用户网页的可视区域的百分比，达到时便可添加CSS类（class)。"
         }
       }
     },
