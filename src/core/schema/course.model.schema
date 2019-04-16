@@ -102,7 +102,7 @@
                 "type": "string",
                 "inputType": "Text",
                 "required": true,
-                "title": "CSS类名(class)应用",
+                "title": "CSS类名应用",
                 "help": "在这里输入需要应用于课件首页的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
               }
             }
@@ -130,8 +130,8 @@
     },
     "_globals": {
       "type": "object",
-      "title": "Globals标签集合",
-      "help": "globals标签集合为所有课件开发平台的核心模块和课件中已启用的插件提供无障碍ARIA标签，并分为以下子集：组件（components），扩展（extensions），菜单（menu）和无障碍辅助功能（accessibility）。",
+      "title": "全局标签集合",
+      "help": "全局(globals)标签集合为所有课件开发平台的核心模块和课件中已启用的插件提供无障碍ARIA标签，并分为以下子集：组件（components），扩展（extensions），菜单（menu）和无障碍辅助功能（accessibility）。",
       "properties": {
         "_accessibility": {
           "type": "object",
@@ -520,7 +520,7 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "CSS类名(class)应用",
+      "title": "CSS类名应用",
       "help": "在这里输入需要应用于课件div的CSS类名(class)。 应用的CSS类名必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isSelected": {

@@ -28,7 +28,7 @@
       "isSetting": true,
       "inputType": "Text",
       "validators": [],
-      "title": "CSS类名(class)应用",
+      "title": "CSS类名应用",
       "help": "在这里输入需要应用于当前组件元素的CSS类名(class)，必须在主题文件中预先定义，应用多个CSS类名时用空格分隔。"
     },
     "_isOptional": {
@@ -124,7 +124,7 @@
     },
     "_onScreen": {
       "type": "object",
-      "title": "屏幕视区CSS类设置（On-screen Class)",
+      "title": "屏幕视区CSS类设置",
       "help": "这些设置允许您在浏览器的视区（viewport)，即在用户网页的可视区域中将CSS类（class) 附加到当前组件，有助于在组件滚动到视区时在组件上运行基于CSS的动画效果。",
       "properties": {
         "_isEnabled": {
@@ -142,7 +142,7 @@
           "required": false,
           "inputType": "Text",
           "validators": [],
-          "title": "CSS类名(class)应用",
+          "title": "CSS类名应用",
           "help": "指定要应用到组件元素（component element)的CSS类(class)名称，添加多个时用空格分开。"
         },
         "_percentInviewVertical": {
@@ -150,7 +150,7 @@
           "required": false,
           "default": 50,
           "isSetting": true,
-          "title": "视区(viewport)百分比",
+          "title": "视区百分比",
           "inputType": "Number",
           "validators": ["number"],
           "help": "控制组件高度在用户视区(viewport)，即用户网页的可视区域的百分比，达到时便可添加CSS类（class)。"
