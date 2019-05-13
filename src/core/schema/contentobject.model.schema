@@ -52,6 +52,14 @@
       "help": "选填，可以是一些提示性的简单操作说明，如：滚动页面开始学习！",
       "translatable": true
     },
+    "_htmlClassName": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "If set, this class will be applied to the <html> element whenever this is the active page in the course"
+    },
     "_graphic": {
       "type": "object",
       "title": "菜单项图片设置",

@@ -398,6 +398,10 @@
     },
     "themeSettings": {
       "type": "object"
+    },
+    "_themePreset": {
+      "type": "objectid",
+      "required": false
     }
   }
 }

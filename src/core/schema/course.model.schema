@@ -54,6 +54,14 @@
       "help": "课件内容的简单介绍，一般显示在课件的主菜单上。",
       "translatable": true
     },
+    "_htmlClassName": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "If set, this class will be applied to the <html> element when the top-level menu in the course is displayed"
+    },
     "_extensions": {
       "type": "object"
     },
@@ -539,10 +547,26 @@
       "editorOnly": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "设置为共享课件",
-      "help": "允许课件开发平台上的其他用户在课件中心的“共享课件”菜单下访问并编辑这个课件。"
+      "title": "与所有用户共享",
+      "help": "允许课件开发平台上的所有用户在课件中心的“共享课件”菜单下访问并编辑这个课件。"
+    },
+    "_shareWithUsers": {
+      "type": "array",
+      "inputType": "Users",
+      "items": {
+        "type": "objectid",
+        "inputType": "Text",
+        "required": false,
+        "editorOnly": true,
+        "ref": "user"
+      },
+      "title": "与所有用户共享",
+      "help": "允许指定用户编辑这个课件。"
     },
     "themeSettings": {
+      "type": "object"
+    },
+    "themeVariables": {
       "type": "object"
     },
     "menuSettings": {
