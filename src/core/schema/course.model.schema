@@ -16,7 +16,7 @@
     "title": {
       "type": "string",
       "required": true,
-      "default": "课件内部名称",
+      "default": "c101-课件名称",
       "inputType": "Text",
       "validators": [
         "required"
@@ -28,7 +28,7 @@
     "displayTitle": {
       "type": "string",
       "required": false,
-      "default": "课件名称",
+      "default": "c01-课件名称",
       "inputType": "DisplayTitle",
       "validators": [],
       "title": "课件显示名称",
@@ -58,9 +58,10 @@
       "type": "string",
       "required": false,
       "default": "",
+      "title": "html元素CSS类名应用"
       "inputType": "Text",
       "validators": [],
-      "help": "If set, this class will be applied to the <html> element when the top-level menu in the course is displayed"
+      "help": "当显示课件中的顶级菜单时，将该CSS类名应用于页面的<html>元素。"
     },
     "_extensions": {
       "type": "object"
@@ -560,8 +561,8 @@
         "editorOnly": true,
         "ref": "user"
       },
-      "title": "与所有用户共享",
-      "help": "允许指定用户编辑这个课件。"
+      "title": "与指定用户共享",
+      "help": "仅允许指定用户编辑这个课件。"
     },
     "themeSettings": {
       "type": "object"
