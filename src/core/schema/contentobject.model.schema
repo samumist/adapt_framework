@@ -56,7 +56,7 @@
       "type": "string",
       "required": false,
       "default": "",
-      "title": "html元素CSS类名应用"
+      "title": "html元素CSS类名应用",
       "inputType": "Text",
       "validators": [],
       "help": "当用户访问当前页面时，该CSS类名将应用于页面的<html>元素。"

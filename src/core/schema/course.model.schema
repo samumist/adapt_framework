@@ -58,7 +58,7 @@
       "type": "string",
       "required": false,
       "default": "",
-      "title": "html元素CSS类名应用"
+      "title": "html元素CSS类名应用",
       "inputType": "Text",
       "validators": [],
       "help": "当显示课件中的顶级菜单时，将该CSS类名应用于页面的<html>元素。"
