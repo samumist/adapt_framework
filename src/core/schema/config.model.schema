@@ -15,7 +15,7 @@
     },
     "_menu": {
       "type": "string",
-      "default": "adapt-contrib-boxMenu"
+      "default": "adapt-contrib-boxmenu"
     },
     "_courseId": {
       "type": "objectid",
@@ -24,16 +24,17 @@
     "_defaultLanguage": {
       "type": "string",
       "required": true,
-      "default": "en",
-      "title": "Default Language",
+      "default": "zh-cn",
+      "title": "课件默认语言",
       "inputType": "Text",
-      "validators": ["required"]
+      "validators": ["required"],
+      "help": "课件内容显示的主要语言。课件将根据这个值来创建课件course的子文件夹（例如，/course/zh-cn)，并设定HTML标记“lang”的属性。"
     },
     "_defaultDirection": {
       "type": "string",
       "required": true,
       "default": "ltr",
-      "title": "Text Direction",
+      "title": "课件文本书写方向",
       "validators": ["required"],
       "inputType": {
         "type": "Select",
@@ -41,11 +42,13 @@
           "ltr",
           "rtl"
         ]
-      }
+      },
+      "help": "用于设置课件文本的行文方向，默认是从左到右（ltr）。 对于某些书写方向为从右到左的语言如阿拉伯语、希伯来语等，请选择rtl，这将会在生成的课件中添加'dir-rtl'到html的标记。"
     },
     "_accessibility": {
       "type": "object",
-      "title": "Accessibility",
+      "title": "无障碍辅助功能设置",
+      "help": "",
       "properties" : {
         "_isEnabled": {
           "type": "boolean",
@@ -53,7 +56,7 @@
           "isSetting": false,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enable accessibility features?"
+          "title": "启用课件无障碍辅助功能？"
         },
         "_isEnabledOnTouchDevices": {
           "type": "boolean",
@@ -61,7 +64,7 @@
           "isSetting": false,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enabled on touch devices?"
+          "title": "启用课件无障碍辅助功能"
         },
         "_shouldSupportLegacyBrowsers": {
           "type": "boolean",
@@ -69,8 +72,8 @@
           "isSetting": false,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Support legacy browsers?",
-          "help": "Need accessibility support for Internet Explorer v8?"
+          "title": "支持旧版浏览器？",
+          "help": "课件是否需要对Internet Explorer v8的辅助功能支持吗？"
         },
         "_isTextProcessorEnabled": {
           "type": "boolean",
@@ -78,8 +81,8 @@
           "isSetting": false,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enable text reader support?",
-          "help": "Adds focusing to assist text reader software"
+          "title": "启用屏幕阅读器高亮支持",
+          "help": "是否为屏幕阅读器开启文字高亮支持？"
         },
         "_isSkipNavigationEnabled": {
           "type": "boolean",
@@ -87,41 +90,105 @@
           "isSetting": false,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enable Skip Navigation link?",
-          "help": "Adds a link to the start of the page to allow assistive technology users to skip over the navigation and straight into to the page content."
+          "title": "允许跳过导航",
+          "help": "在页面的顶部添加链接，以允许使用无障碍辅助功能技术的用户跳过导航并直接进入页面内容。"
+        },
+        "_ariaLevels": {
+          "type": "object",
+          "title": "ARIA级别设置",
+          "help": "设定课件页面中各种元素的ARIA级别属性值，一般情况下无需修改，使用默认值即可。",
+          "properties" : {
+            "_menu": {
+              "type": "number",
+              "required": true,
+              "default": 1,
+              "title": "菜单元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            },
+            "_menuItem": {
+              "type": "number",
+              "required": true,
+              "default": 2,
+              "title": "菜单项元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            },
+            "_page": {
+              "type": "number",
+              "required": true,
+              "default": 1,
+              "title": "页面元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            },
+            "_article": {
+              "type": "number",
+              "required": true,
+              "default": 2,
+              "title": "章节元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            },
+            "_block": {
+              "type": "number",
+              "required": true,
+              "default": 3,
+              "title": "组块元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            },
+            "_component": {
+              "type": "number",
+              "required": true,
+              "default": 4,
+              "title": "组件元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            },
+            "_componentItem": {
+              "type": "number",
+              "required": true,
+              "default": 5,
+              "title": "组件项元素ARIA级别",
+              "inputType": "Number",
+              "validators": ["required", "number"]
+            }
+          }
         }
       }
     },
     "screenSize": {
       "type": "object",
-      "title": "Screen Size",
+      "title": "屏幕尺寸设置",
+      "help": "屏幕尺寸设置允许将像素宽度指定给三个设备宽度：大、中、小。 指定的值必须仅为数字，且不含单位。 注意：屏幕尺寸设置仅应用在程序代码中使用Adapt.device.width，而不是定义课件CSS中的media query，一般情况下使用默认值即可。",
       "properties": {
         "small": {
           "type": "number",
           "required": true,
           "default": 519,
-          "title": "Small",
+          "title": "小",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "Pixel width for the small breakpoint, e.g. cellphones"
+          "help": "较小设备屏幕宽度像素值，如：智能手机"
         },
         "medium": {
           "type": "number",
           "required": true,
           "default": 759,
-          "title": "Medium",
+          "title": "中",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "Pixel width for the medium breakpoint, e.g. tablet devices"
+          "help": "中等设备屏幕宽度像素值，如：平板设备"
         },
         "large": {
           "type": "number",
           "required": true,
           "default": 1024,
-          "title": "Large",
+          "title": "大",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "Pixel width for the large breakpoint, e.g. laptop/desktop computers"
+          "help": "较大设备屏幕宽度像素值，如：台式机或笔记本电脑"
         }
       }
     },
@@ -130,20 +197,23 @@
       "required": true,
       "default": 1,
       "isSetting": true,
-      "title": "Question Weight",
+      "title": "问题权重",
       "inputType": "Number",
-      "validators": ["required", "number"]
+      "validators": ["required", "number"],
+      "help": "每个问题组件在计算分数时所占权重的全局默认设置。单个问题组件可以在其属性设置里修改这个设置，从而覆写这个全局设置。"
     },
     "_drawer": {
       "type": "object",
       "isSetting": false,
-      "title": "",
+      "title": "课件抽屉",
+      "help": "课件抽屉默认是一个滑出面板，通常用于显示课件学习进度的指示器和课件辅助资源的链接等。 课件抽屉使用velocity.js引擎作为动画效果。",
       "properties": {
         "_showEasing": {
           "type": "string",
           "required": true,
           "default": "easeOutQuart",
-          "title": "Show Easing",
+          "title": "打开动画效果",
+          "help": "请选择课件抽屉打开时的动画效果",
           "inputType": {
             "type": "Select",
             "options": [
@@ -185,7 +255,8 @@
           "type": "string",
           "required": true,
           "default": "easeInQuart",
-          "title": "Hide Easing",
+          "title": "关闭动画效果",
+          "help": "请选择课件抽屉关闭时的动画效果",
           "inputType": {
             "type": "Select",
             "options": [
@@ -227,9 +298,10 @@
           "type": "number",
           "required": true,
           "default": 400,
-          "title": "Duration",
+          "title": "动画时长",
           "inputType": "Number",
-          "validators": ["required", "number"]
+          "validators": ["required", "number"],
+          "help": "打开或关闭课件抽屉时的动画显示时间。"
         }
       }
     },
@@ -239,8 +311,8 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Generate sourcemaps?",
-      "help": "Allows the course JavaScript & CSS to be debugged via the browser's developer tools."
+      "title": "是否生成调试用源代码映射集？",
+      "help": "允许课件开发人员通过浏览器的开发者工具使用生成的源代码映射集来调试课件的JavaScript和CSS。"
     },
     "_forceRouteLocking": {
       "type": "boolean",
@@ -248,12 +320,12 @@
       "isSetting": true,
       "inputType": "Checkbox",
       "validators": [],
-      "title": "Enforce route locking?",
-      "help": "If locking is enabled, this setting prevents navigating to locked routes"
+      "title": "使用路径锁定功能",
+      "help": "这个设置可以防止用户在浏览器地址栏中直接输入路径来访问锁定的课件菜单或页面。"
     },
     "_logging": {
       "type": "object",
-      "title": "Logging",
+      "title": "系统记录",
       "properties": {
         "_isEnabled": {
           "type": "boolean",
@@ -261,13 +333,13 @@
           "required": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Enabled?"
+          "title": "启用系统记录"
         },
         "_level": {
           "type": "string",
           "required": true,
           "default" : "info",
-          "title" : "Log Level",
+          "title" : "系统记录级别",
           "validators": [],
           "inputType": {
             "type": "Select",
@@ -278,14 +350,15 @@
               "error",
               "fatal"
             ]
-          }
+          },
+          "help": "选择系统记录的级别：debug(调试级)， info(信息)， warn(警告)，error(报错)，fatal(危险)。"
         },
         "_console": {
           "type": "boolean",
           "default": true,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "Log to browser console?"
+          "title": "在浏览器的控制台(console)中显示系统记录"
         }
       }
     },
@@ -303,9 +376,9 @@
       "_allowScrollOver": {
         "type": "boolean",
         "default": true,
-        "title": "Allow scroll over",
+        "title": "允许滚动",
         "inputType": "Checkbox",
-        "help": "This setting relates to browsers that pause script execution whilst the learner is scrolling (e.g. Safari for iOS 6 & 7). This causes problems for components that use 'inview' completion. Once scrolling has stopped 'scroll over' works around the paused execution by checking to see if the content was made visible during the scroll. Unless you need support for browsers that pause script execution on scroll, you can disable this setting."
+        "help": "此设置涉及在学习者滚动时暂停脚本执行的浏览器（例如，适用于iOS 6和7的Safari）。 这会导致使用“inview”完成的组件出现问题。 一旦滚动停止，“滚动”就可以通过检查滚动期间是否显示内容来查看暂停的执行。 除非您需要支持在滚动时暂停脚本执行的浏览器，否则您可以禁用此设置。"
         }
       }
     }
