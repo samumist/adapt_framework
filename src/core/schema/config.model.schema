@@ -39,8 +39,14 @@
       "inputType": {
         "type": "Select",
         "options": [
-          "ltr",
-          "rtl"
+          {
+            "label": "从左向右",
+            "val": "ltr"
+          },
+          {
+            "label": "从右向左",
+            "val": "rtl"
+          }
         ]
       },
       "help": "用于设置课件文本的行文方向，默认是从左到右（ltr）。 对于某些书写方向为从右到左的语言如阿拉伯语、希伯来语等，请选择rtl，这将会在生成的课件中添加'dir-rtl'到html的标记。"
@@ -344,14 +350,29 @@
           "inputType": {
             "type": "Select",
             "options": [
-              "debug",
-              "info",
-              "warn",
-              "error",
-              "fatal"
+              {
+                "label": "调试级",
+                "val": "debug"
+              },
+              {
+                "label": "信息",
+                "val": "info"
+              },
+              {
+                "label": "警告",
+                "val": "warn"
+              },
+              {
+                "label": "错误",
+                "val": "error"
+              },
+              {
+                "label": "危险",
+                "val": "fatal"
+              }
             ]
           },
-          "help": "选择系统记录的级别：debug(调试级)， info(信息)， warn(警告)，error(报错)，fatal(危险)。"
+          "help": "选择系统记录的级别。"
         },
         "_console": {
           "type": "boolean",
