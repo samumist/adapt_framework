@@ -580,14 +580,26 @@
         "type": "Select",
         "options": [
           "",
-          "custom",
-          "lockLast",
-          "sequential",
-          "unlockFirst"
+          {
+            "label": "按顺序依次解锁",
+            "val": "sequential"
+          },
+          {
+            "label": "完成第一个解锁全部",
+            "val": "unlockFirst"
+          },
+          {
+            "label": "完成所有解锁最后一个",
+            "val": "lockLast"
+          },
+          {
+            "label": "自定义锁定",
+            "val": "custom"
+          }
         ]
       },
       "title": "菜单锁定类型",
-      "help": "选择课件是否使用菜单锁定功能，并设置菜单锁定类型。sequential：打开第一个菜单项，完成后按顺序依次解锁；unlockFirst: 打开第一个菜单项，完成后全部解锁；lockLast：锁定最后一个菜单项，完成所有其他菜单项后解锁；custom：自定义锁定，完成指定菜单项后方可解锁。",
+      "help": "选择课件是否使用菜单锁定功能，并设置菜单锁定类型。按顺序依次解锁(sequential)：打开第一个菜单项，完成后按顺序依次解锁；完成第一个解锁全部(unlockFirst): 打开第一个菜单项，完成后全部解锁；完成所有解锁最后一个(lockLast)：锁定最后一个菜单项，完成所有其他菜单项后解锁；自定义锁定(custom)：自定义锁定，完成指定菜单项后方可解锁。",
       "validators": []
     },
     "customStyle": {
