@@ -140,8 +140,8 @@
           "properties": {
             "accessibilityToggleTextOn": {
               "type": "string",
-              "title": "Toggle on label",
-              "default": "Turn accessibility on?",
+              "title": "辅助功能切换打开标签",
+              "default": "打开辅助功能？",
               "inputType": "Text",
               "required": true,
               "validators": [
@@ -151,7 +151,7 @@
             },
             "accessibilityToggleTextOff": {
               "type": "string",
-              "title": "辅助功能切换标签",
+              "title": "辅助功能关闭标签",
               "default": "关闭辅助功能？",
               "inputType": "Text",
               "required": true,
@@ -216,7 +216,7 @@
               "properties": {
                 "navigation": {
                   "type": "string",
-                  "title": "",
+                  "title": "课程导航栏",
                   "default": "课程导航栏",
                   "inputType": "Text",
                   "required": true,
@@ -232,7 +232,7 @@
                 },
                 "menuLoaded": {
                   "type": "string",
-                  "title": "",
+                  "title": "菜单已加载",
                   "default": "菜单已加载",
                   "inputType": "Text",
                   "required": true,
@@ -240,7 +240,7 @@
                 },
                 "page": {
                   "type": "string",
-                  "title": "",
+                  "title": "页面",
                   "default": "页面",
                   "inputType": "Text",
                   "required": true,
@@ -248,7 +248,7 @@
                 },
                 "pageLoaded": {
                   "type": "string",
-                  "title": "",
+                  "title": "页面已加载",
                   "default": "页面已加载",
                   "inputType": "Text",
                   "required": true,
@@ -256,7 +256,7 @@
                 },
                 "previous": {
                   "type": "string",
-                  "title": "",
+                  "title": "后退",
                   "default": "后退",
                   "inputType": "Text",
                   "required": true,
@@ -264,7 +264,7 @@
                 },
                 "navigationDrawer": {
                   "type": "string",
-                  "title": "",
+                  "title": "打开课程资源和搜索",
                   "default": "打开课程资源和搜索",
                   "inputType": "Text",
                   "required": true,

@@ -64,7 +64,7 @@
           "isSetting": false,
           "inputType": "Checkbox",
           "validators": [],
-          "title": "启用课件无障碍辅助功能"
+          "title": "在触屏设备上启用课件无障碍辅助功能"
         },
         "_shouldSupportLegacyBrowsers": {
           "type": "boolean",
@@ -371,7 +371,7 @@
     },
     "_inview": {
       "type": "object",
-      "title": "",
+      "title": "组件完成滚动设置",
       "properties": {
       "_allowScrollOver": {
         "type": "boolean",
