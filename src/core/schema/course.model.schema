@@ -623,7 +623,8 @@
       "type": "object"
     },
     "menuSettings": {
-      "type": "object"
+      "type": "object",
+      "title": "菜单设置"
     },
     "_lockType": {
       "type": "string",
